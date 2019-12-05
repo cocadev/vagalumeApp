@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, Animated, AppState, StyleSheet, Image, ImageBackground, ScrollView, TouchableOpacity, Dimensions, Platform, AsyncStorage, Keyboard } from 'react-native';
 import lunr from 'lunr';
-import axios from 'axios';
-import Loader from './Loader';
 import Input from './Input';
 import SearchCloud from './SearchCloud';
 import Icon from '../containers/Icon';
 import { StationTile } from '../containers/StationTile';
-import StatusBarHeight from '../containers/StatusBarHeight';
 import EventManager from '../containers/EventManager';
 import Toast from 'react-native-root-toast';
 
@@ -27,7 +24,6 @@ class SearchPage extends Component {
             keyboardOpened: false
         };
 
-		// Variável que controla a busca no Lunr
 		this.idx;
 
 		this.searchInput = {};

@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Keyboard, Animated, AsyncStorage, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {
+	View,
+	Text,
+	TextInput,
+	Keyboard,
+	Animated,
+	AsyncStorage,
+	StyleSheet,
+	Image,
+	TouchableOpacity
+} from 'react-native';
 import StatusBarHeight from '../containers/StatusBarHeight';
 import Icon from '../containers/Icon';
 import Loader from './Loader';
@@ -37,22 +47,22 @@ class Input extends Component {
 	}
 
 	focusSearchInput() {
-        Animated.parallel([
-            Animated.timing(this.state.searchInputMargin, {
-                toValue: 0,
-                duration: 300
-            }),
-            Animated.timing(this.state.blurButtonOpacity, {
-                toValue: 1,
-                duration: 200,
-                delay: 300
-            }),
-            Animated.timing(this.state.blurPlaceholder, {
-                toValue: 0,
-                duration: 200
-            })
-        ]).start();
-    }
+		Animated.parallel([
+			Animated.timing(this.state.searchInputMargin, {
+				toValue: 0,
+				duration: 300
+			}),
+			Animated.timing(this.state.blurButtonOpacity, {
+				toValue: 1,
+				duration: 200,
+				delay: 300
+			}),
+			Animated.timing(this.state.blurPlaceholder, {
+				toValue: 0,
+				duration: 200
+			})
+		]).start();
+	}
 
 	blurSearchInput(saveInstanceState) {
 		if (saveInstanceState && this.state.text.length > 0) {
@@ -87,7 +97,7 @@ class Input extends Component {
 				});
 			});
 		}, 100);
-    }
+	}
 
 	onChangeText(text) {
 		this.setState({ text });
@@ -107,13 +117,14 @@ class Input extends Component {
 
 		return (
 			<TouchableOpacity
-			hitSlop={{ top: 30, left: 30, bottom: 30, right: 0 }}
-			onPress={this.backPage.bind(this)}
-			style={styles.backButton}
-			accessible={true}
-            accessibilityLabel={accessibilityText}
-			accessibilityTraits={'button'}
-			accessibilityComponentType={'button'}>
+				hitSlop={{ top: 30, left: 30, bottom: 30, right: 0 }}
+				onPress={this.backPage.bind(this)}
+				style={styles.backButton}
+				accessible={true}
+				accessibilityLabel={accessibilityText}
+				accessibilityTraits={'button'}
+				accessibilityComponentType={'button'}
+			>
 				<Icon name="chevron_left" size={16} color="#FFF" />
 			</TouchableOpacity>
 		);
@@ -122,13 +133,13 @@ class Input extends Component {
 	renderPlaceholder() {
 		return (
 			<Animated.View
-			pointerEvents="none"
-			style={[ styles.placeholderContainer, { opacity: this.state.blurPlaceholder, transform: [{ translateX: 20 }] }]}
-			>
-				<Text
 				pointerEvents="none"
-				style={styles.placeholder}
-				>
+				style={[
+					styles.placeholderContainer,
+					{ opacity: this.state.blurPlaceholder, transform: [ { translateX: 20 } ] }
+				]}
+			>
+				<Text pointerEvents="none" style={styles.placeholder}>
 					O que você deseja ouvir?
 				</Text>
 			</Animated.View>
@@ -137,37 +148,37 @@ class Input extends Component {
 
 	renderInput() {
 		return (
-			<Animated.View
-			style={{ margin: this.state.searchInputMargin, flex: 1 }}
-			>
+			<Animated.View style={{ margin: this.state.searchInputMargin, flex: 1 }}>
 				<TextInput
-				ref={(input) => { this.input = input; }}
-				onFocus={this.focusSearchInput.bind(this)}
-				returnKeyType="search"
-				underlineColorAndroid="transparent"
-				style={styles.input}
-				onChangeText={this.onChangeText.bind(this)}
-				value={this.state.text}
+					ref={(input) => {
+						this.input = input;
+					}}
+					onFocus={this.focusSearchInput.bind(this)}
+					returnKeyType="search"
+					underlineColorAndroid="transparent"
+					style={styles.input}
+					onChangeText={this.onChangeText.bind(this)}
+					value={this.state.text}
 				/>
 			</Animated.View>
 		);
 	}
 
 	renderClearButton() {
-        if (this.state.text) {
-            return (
-                <TouchableOpacity
-                hitSlop={{ top: 30, left: 20, right: 30, bottom: 30 }}
-                onPress={this.clearSearch.bind(this)}
-                style={styles.clearButton}
-                >
+		if (this.state.text) {
+			return (
+				<TouchableOpacity
+					hitSlop={{ top: 30, left: 20, right: 30, bottom: 30 }}
+					onPress={this.clearSearch.bind(this)}
+					style={styles.clearButton}
+				>
 					<Animated.View style={{ opacity: this.state.blurButtonOpacity }}>
 						<Icon name="close" size={16} color="#FFF" />
 					</Animated.View>
-                </TouchableOpacity>
-            );
-        }
-    }
+				</TouchableOpacity>
+			);
+		}
+	}
 
 	render() {
 		return (
@@ -237,7 +248,7 @@ const styles = StyleSheet.create({
 		right: 6,
 		alignItems: 'center',
 		justifyContent: 'center',
-		width: 30,
+		width: 30
 	}
 });
 
