@@ -5,14 +5,27 @@ import Icon from '../containers/Icon';
 class StationName extends Component {
 	renderSleepTime() {
 		let { sleepTime } = this.props;
-        const date = sleepTime && sleepTime.dateTime ? new Date(sleepTime.dateTime) : null;
-        const time = date ? this.toStringTime(date) : null;
+		const date = sleepTime && sleepTime.dateTime ? new Date(sleepTime.dateTime) : null;
+		const time = date ? this.toStringTime(date) : null;
 
 		if (sleepTime) {
 			return (
-				<View style={{ marginTop: 5, padding: 3, backgroundColor: 'rgba(0, 0, 0, 0.3)', borderRadius: 5, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }} accessible={true} accessibilityLiveRegion={'polite'} accessibilityTraits={'frequentUpdates'}>
+				<View
+					style={{
+						marginTop: 5,
+						padding: 3,
+						backgroundColor: 'rgba(0, 0, 0, 0.3)',
+						borderRadius: 5,
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignItems: 'center'
+					}}
+					accessible={true}
+					accessibilityLiveRegion={'polite'}
+					accessibilityTraits={'frequentUpdates'}
+				>
 					<Icon name="sleep_on" size={14} color="#FFF" style={{ marginRight: 3 }} />
-					<Text style={[styles.text, { fontSize: 12, marginRight: 3 }]}>{time}</Text>
+					<Text style={[ styles.text, { fontSize: 12, marginRight: 3 } ]}>{time}</Text>
 				</View>
 			);
 		}
@@ -33,7 +46,12 @@ class StationName extends Component {
 		return (
 			<TouchableWithoutFeedback onPress={this.props.goStation.bind(this, station)}>
 				<View style={styles.body}>
-					<View style={styles.name} accessible={true} accessibilityLiveRegion={'polite'} accessibilityTraits={'frequentUpdates'}>
+					<View
+						style={styles.name}
+						accessible={true}
+						accessibilityLiveRegion={'polite'}
+						accessibilityTraits={'frequentUpdates'}
+					>
 						<Icon name="live" size={12} color="#CF0" style={{ marginRight: 5 }} />
 						<Text style={styles.text}>{station.name && station.name.toUpperCase()}</Text>
 					</View>

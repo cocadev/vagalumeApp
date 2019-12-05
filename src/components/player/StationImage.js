@@ -25,7 +25,7 @@ class StationImage extends Component {
 		const { song, station } = this.props;
 		if (station.id && song.title && song.title.id) {
 			return (
-				<View style={[styles.iconContent, styles.imageIcon]}>
+				<View style={[ styles.iconContent, styles.imageIcon ]}>
 					<ImageCache source={{ uri: station.img.icon }} style={styles.imageIcon} />
 				</View>
 			);
@@ -40,49 +40,55 @@ class StationImage extends Component {
 
 		if (song && song.title && song.title.id) {
 			image = (
-				<ImageCache source={{ uri: song.img.medium }} style={{ width: SIZE, height: SIZE, borderRadius: SIZE / 2 }} />
+				<ImageCache
+					source={{ uri: song.img.medium }}
+					style={{ width: SIZE, height: SIZE, borderRadius: SIZE / 2 }}
+				/>
 			);
 		} else if (station && station.img && station.img.default) {
 			image = (
-				<ImageCache source={{ uri: station.img.default }} style={{ width: SIZE, height: SIZE, borderRadius: SIZE / 2 }} />
+				<ImageCache
+					source={{ uri: station.img.default }}
+					style={{ width: SIZE, height: SIZE, borderRadius: SIZE / 2 }}
+				/>
 			);
 		}
 
 		if (playerType !== PLAYER_TYPES.OFFLINE) {
 			navigate = (
-				<View style={[StyleSheet.absoluteFill, styles.navigateContainer]}>
+				<View style={[ StyleSheet.absoluteFill, styles.navigateContainer ]}>
 					<NavigateStation
-					onPress={() => {
-						const { isRecording } = this.props;
-						EventManager.trackEvent({ action: 'clicked_previous_button', category: 'Player' });
+						onPress={() => {
+							const { isRecording } = this.props;
+							EventManager.trackEvent({ action: 'clicked_previous_button', category: 'Player' });
 
-						if (isRecording) {
-							stopRecording();
-							clearTimeout(nextPreviousTimeOut);
-							nextPreviousTimeOut = setTimeout(() => {
+							if (isRecording) {
+								stopRecording();
+								clearTimeout(nextPreviousTimeOut);
+								nextPreviousTimeOut = setTimeout(() => {
+									navigateStation({ nextPrevious: 'previous' });
+								}, 400);
+							} else {
 								navigateStation({ nextPrevious: 'previous' });
-							}, 400);
-						} else {
-							navigateStation({ nextPrevious: 'previous' });
-						}
-					}}
+							}
+						}}
 					/>
 					<NavigateStation
-					onPress={() => {
-						const { isRecording } = this.props;
-						EventManager.trackEvent({ action: 'clicked_next_button', category: 'Player' });
+						onPress={() => {
+							const { isRecording } = this.props;
+							EventManager.trackEvent({ action: 'clicked_next_button', category: 'Player' });
 
-						if (isRecording) {
-							stopRecording();
-							clearTimeout(nextPreviousTimeOut);
-							nextPreviousTimeOut = setTimeout(() => {
+							if (isRecording) {
+								stopRecording();
+								clearTimeout(nextPreviousTimeOut);
+								nextPreviousTimeOut = setTimeout(() => {
+									navigateStation({ nextPrevious: 'next' });
+								}, 400);
+							} else {
 								navigateStation({ nextPrevious: 'next' });
-							}, 400);
-						} else {
-							navigateStation({ nextPrevious: 'next' });
-						}
-					}}
-					isNext
+							}
+						}}
+						isNext
 					/>
 				</View>
 			);
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
 	imageIcon: {
 		width: 60,
 		height: 60,
-		borderRadius: 30,
+		borderRadius: 30
 	},
 	iconContent: {
 		position: 'absolute',

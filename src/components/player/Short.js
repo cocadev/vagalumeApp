@@ -45,9 +45,7 @@ class Short extends Component {
 		let image;
 
 		if (playerInfo && playerInfo.img && playerInfo.img.default) {
-			image = (
-				<ImageCache source={{ uri: playerInfo.img.default }} style={styles.image} />
-			);
+			image = <ImageCache source={{ uri: playerInfo.img.default }} style={styles.image} />;
 		}
 
 		return (
@@ -76,73 +74,79 @@ class Short extends Component {
 		}
 
 		return (
-			<View pointerEvents="none" style={styles.infoContainer} accessible={true} accessibilityTraits={'button'} accessibilityComponentType={'button'}>
-				<Text numberOfLines={1} style={[styles.infoText]}>{songInfo}</Text>
-				<Text numberOfLines={1} style={[styles.infoText, styles.infoStationName]}>{playerInfo.name}</Text>
+			<View
+				pointerEvents="none"
+				style={styles.infoContainer}
+				accessible={true}
+				accessibilityTraits={'button'}
+				accessibilityComponentType={'button'}
+			>
+				<Text numberOfLines={1} style={[ styles.infoText ]}>
+					{songInfo}
+				</Text>
+				<Text numberOfLines={1} style={[ styles.infoText, styles.infoStationName ]}>
+					{playerInfo.name}
+				</Text>
 			</View>
-		)
+		);
 	}
 
 	renderControlButton() {
 		const { playerInstance, playerStatus } = this.props;
 		return (
 			<View style={{ marginLeft: 5 }}>
-				<PlayButton
-				player={playerInstance}
-				playerStatus={playerStatus}
-				size={30}
-				/>
+				<PlayButton player={playerInstance} playerStatus={playerStatus} size={30} />
 			</View>
-		)
+		);
 	}
 
 	renderBackground() {
 		const { playerInfo, playerHeight } = this.props;
 
-		let image = (
-			<View style={[styles.background, { height: playerHeight }]} />
-		);
+		let image = <View style={[ styles.background, { height: playerHeight } ]} />;
 
 		if (playerInfo && playerInfo.img && playerInfo.img.default) {
 			image = (
 				<Image
-				blurRadius={backgroundBlur}
-				source={{ uri: playerInfo.img.default, cache: 'force-cache' }}
-				style={[styles.background, { height: playerHeight }]}
+					blurRadius={backgroundBlur}
+					source={{ uri: playerInfo.img.default, cache: 'force-cache' }}
+					style={[ styles.background, { height: playerHeight } ]}
 				/>
 			);
 		}
 
 		return (
-			<TouchableWithoutFeedback onPress={() => {
-				this.props.openPlayer();
-				EventManager.trackEvent({ action: 'opened_player', category: 'Player' });
-			}}>
+			<TouchableWithoutFeedback
+				onPress={() => {
+					this.props.openPlayer();
+					EventManager.trackEvent({ action: 'opened_player', category: 'Player' });
+				}}
+			>
 				{image}
 			</TouchableWithoutFeedback>
 		);
 	}
 
-
 	renderOpenButton() {
 		const accessibilityText = `Abrir player.`;
 		return (
-			<View pointerEvents="none" accessible={true} accessibilityComponentType={'button'} accessibilityComponentType={'button'} accessibilityLabel={accessibilityText}>
+			<View
+				pointerEvents="none"
+				accessible={true}
+				accessibilityComponentType={'button'}
+				accessibilityComponentType={'button'}
+				accessibilityLabel={accessibilityText}
+			>
 				<Icon name="chevron_up" size={18} color="#FFF" style={styles.openButton} />
 			</View>
-		)
+		);
 	}
 
 	renderProgressBar() {
 		const { playingSong, playerStatus, playerInfo } = this.props;
 		return (
 			<View style={styles.progressContainer}>
-				<ProgressBar
-				playingSong={playingSong}
-				status={playerStatus}
-				playerInfo={playerInfo}
-				size={width}
-				/>
+				<ProgressBar playingSong={playingSong} status={playerStatus} playerInfo={playerInfo} size={width} />
 			</View>
 		);
 	}
@@ -154,14 +158,17 @@ class Short extends Component {
 			return (
 				<IconButton
 					accessible={true}
-	                accessibilityLabel={accessibilityText}
+					accessibilityLabel={accessibilityText}
 					onPress={this.props.toggleSleepModal.bind(this)}
 					hitSlop={{ top: 10, left: 10, right: 10, bottom: 10 }}
 					color="#555"
-					size={30}>
-					<View style={{ marginRight: 5 }}><Icon name="sleep_on" size={23} color="#FFF" /></View>
+					size={30}
+				>
+					<View style={{ marginRight: 5 }}>
+						<Icon name="sleep_on" size={23} color="#FFF" />
+					</View>
 				</IconButton>
-			)
+			);
 		}
 	}
 
@@ -178,16 +185,16 @@ class Short extends Component {
 		const { playerHeight, shadowHeight } = this.props;
 
 		return (
-			<View style={[styles.body, { height: playerHeight + shadowHeight }]}>
+			<View style={[ styles.body, { height: playerHeight + shadowHeight } ]}>
 				<LinearGradient
-				colors={['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 0.4)']}
-				style={{
-					height: shadowHeight,
-					backgroundColor: 'transparent',
-					width
-				}}
+					colors={[ 'rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 0.4)' ]}
+					style={{
+						height: shadowHeight,
+						backgroundColor: 'transparent',
+						width
+					}}
 				/>
-				<View style={[styles.container, { height: playerHeight }]}>
+				<View style={[ styles.container, { height: playerHeight } ]}>
 					{this.renderProgressBar()}
 					{this.renderOpenButton()}
 					{this.renderBackground()}
@@ -198,7 +205,7 @@ class Short extends Component {
 					{this.renderControlButton()}
 				</View>
 			</View>
-		)
+		);
 	}
 }
 
