@@ -1,134 +1,131 @@
-# Aplicativo Vagalume.FM
+<h1 align="center"><b> Vagalume App </b> </h1>
 
-Aqui a música não para! Sintonize uma estação com seu estilo e deixe rolar! Repositório onde se encontra os arquivos da plataforma Android e IOS desenvolvido em React Native.
-Você pode acessar aqui o link do aplicativo na loja do [Android](https://play.google.com/store/apps/details?id=br.com.vagalume.fm&hl=pt_BR) e do [iOS](https://itunes.apple.com/br/app/vagalume.fm/id1154246231?mt=8).
+<h1 align="center">
+  <br>
+  <kbd>
+    <img src="https://image.prntscr.com/image/YrkdAm5xSxe0MmkqrvGeJA.png" alt="Animavita" height="525" width="725">
+  </kbd>
+  <br>
+  <br><br>
+</h1>
 
-## Dependências
-Você pode verificar a instalação do React Native [aqui](https://facebook.github.io/react-native/docs/getting-started.html) e depois clicando na seção **Building Projects with Native Code**. Após a instalação do React Native basta clonar, entrar no repositório e rodar o comando *npm install* para instalar as dependências.
+<p align="center">With Vagalume streaming you will never miss music to keep up with the moments of your life. Download for FREE and always have it around!</p>
 
-## Comandos principais
-Compila o projeto no modo de desenvolvimento na plataforma selecionada. Importante lembrar que caso queira rodar o projeto no iOS é preferível usar o XCode para compilar:
-```sh
-$ react-native run-[android|ios]
-```
+<p align="center"><i>"How to save a life?" - The Audio Streaming</i> </p>
 
+<p align="center">
+  <a href="http://makeapullrequest.com">
+    <img src="https://img.shields.io/badge/progress-40%25-brightgreen.svg" alt="PRs Welcome">
+  </a>
+  <a href="http://makeapullrequest.com">
+    <img src="https://img.shields.io/badge/contribuition-welcome-brightgreen.svg" alt="PRs Welcome">
+  </a>
+  <a href="https://saythanks.io/to/wendelfreitas">
+      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
+  </a>
+<a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." /></a>  
+</p>
 
-Compila o projeto no modo de produção na plataform selecionada:
-```sh
-$ react-native run-[android] --variant=release
-```
+<p align="center">
+  <a href="#blush-overview">Overview</a> •
+  <a href="#dizzy-roadmap">Roadmap</a> •
+  <a href="#wrench-install-instructions">Install</a> •
+  <a href="#zap-tech-stack">Tech Stack</a> •
+  <a href="#iphone-Test">Test</a> •
+  <a href="#eyes-version">Version</a> •
+</p>
 
+<p align="center">
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/1.PNG" alt="1">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/2.PNG" alt="2">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/3.PNG" alt="3">
+  </kbd>
+  <br/><br/>
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/4.PNG" alt="4">
+  </kbd>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/5.PNG" alt="5">
+  </kbd>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/6.PNG" alt="6">
+  </kbd>
+</p>
 
-Compila o projeto e gera o apk no modo de produção (Android):
-```sh
-$ cd android && ./gradlew assembleRelease
-```
+## :blush: **Overview?**
 
-
-Inicia o server que irá processar os javascripts na aplicação:
-```sh
-$ react-native start
-```
-
-
-Faz a conexão do plugin instalado na plataforma nativa. No iOS algumas dependências devem ser instaladas utilizando o comando *pod install* dentro da pasta *ios* do projeto:
-```sh
-$ react-native link [nome da dependência]
-```
-
-
-Se você estiver utilizando um dispositivo para rodar o aplicativo em desenvolvimento
-este comando irá conectar o device no server javascript:
-```sh
-$ adb reverse tcp:8081 tcp:8081
-```
-
-
-## Bugsnag
-Bugsnag é uma plataforma de relatórios de erros bem completa, estamos utilizando no projeto para facilitar a localização dos bugs nos arquivos do projeto, clicando [aqui](https://app.bugsnag.com/vagalume-2/vagalume-dot-fm/errors?filters[event.since][0]=30d&filters[error.status][0]=open&filters[event.severity][0][value]=error&filters[event.severity][0][type]=eq&filters[app.release_stage][0][value]=production&filters[app.release_stage][0][type]=eq) você pode acessar o painel e acompanhar os relatórios.
-
-
-### Como gerar e enviar o *.map* do projeto?
-Sempre quando é lançada uma nova versão do aplicativo temos que atualizar o arquivo que .map que faz o trabalho de facilitar a localização das linhas do arquivo, já que em produção os javascripts estão minificados. Para enviar basta os seguintes comandos dentro do projeto:
-
-### 1º Gerando o *.map* 
-
-Trocar [android | ios] por uma das plataformas sem '[]'
-```sh
-$ react-native bundle \
-	--platform [android | ios] \
-	--dev false \
-	--entry-file index.js \
-	--bundle-output [android | ios]-release.bundle \
-	--sourcemap-output [android | ios]-release.bundle.map
-```
-
-### 2º Enviando o arquivo *.map* do projeto para Bugsnag
-
-***Utilizando o bugsnag-sourcemaps (recomendado)***
-
-Instalando o package usando o npm:
-```sh
-$ npm install -g bugsnag-sourcemaps
-```
-e depois trocar ´[app-version]´ pela versão atual:
-```sh
-$ bugsnag-sourcemaps upload \
-	--api-key 6b72162240cb5dbea6828c5409a2ea73 \
-	--app-version [app-version] \
-	--code-bundle-id [app-version] \
-	--minified-file [android | ios]-release.bundle \
-	--source-map [android | ios]-release.bundle.map \
-	--minified-url index.[android | ios].bundle \
-	--overwrite \
-	--upload-sources 
-```
-
-***Utilizando o curl***
-Trocar ´[app-version]´ pela versão atual:
-```sh
-$ curl https://upload.bugsnag.com/ -F apiKey=6b72162240cb5dbea6828c5409a2ea73   -F codeBundleId=[app-version] -F minifiedUrl="index.android.bundle" -F minifiedFile=@android/app/src/main/assets/index.android.bundle -F sourceMap=@android/app/src/main/assets/index.android.map -F overwrite=true -F \*/index.js=@index.js
-```
+Finding the perfect trail can sometimes be a big challenge, so let the work with us! Just choose from one of 90 available playlists, play and let it roll. Vagalume.FM is the ideal partner to accompany your day, whether at work, gym, traffic, traveling, having a party or relaxing at home.
 
 
-## Firebase
-Todos os eventos de controle de acesso, notificações, erros e outras medições estamos fazendo no [Firebase](https://console.firebase.google.com/project/vagalume-fm/overview). O aplicativo atualmente está enviando os mesmos eventos tanto para o Firebase como para o Bugsnag e o Google Analytics.
+From pop to rock, from sertanejo to funk, from axé to gospel… here you can find a little of everything! Curated by a truly passionate music team, Vagalume.FM is updated weekly with new stations and features.
 
-### Enviando notificações para o aplicativo
-Utilizando o Firebase fica fácil enviar uma notificação para os usuários, acessando o [painel](https://console.firebase.google.com/project/vagalume-fm/notification/compose) de notificacões, você pode compor uma nova clicando em **Nova Mensagem** e colocar o título e o corpo da notificação.
 
-Por padrão quando o usuário clica para abrir, ele é enviado para a home do aplicativo mas caso você queira enviar para uma estação específica basta clicar em **Opções avançadas** quando estiver criando uma nova notificação e depois na seção de **Personalizar dados** criar uma chave chamada *stationID* com o valor do ID da estação.
+No data? No problem! With the recording feature you can take station schedule snippets with you anywhere without the need for an internet connection.
 
-Não esqueça de ativar o som nas **Opções Avançadas** para o usuário receber a notificação completa.
 
-## Versionamento
-Existem alguns lugares importantes no projeto que é necessário trocar a versão caso for enviada uma atualização para loja.
+Follow your favorite stations, rate songs, check out what played / will play on the schedules and share what you're listening to on social networks.
 
-* android/app/build.gradle
-* android/app/src/main/AndroidManifest.xml
-* ios/VagalumeFM/Info.plist
-* src/lib/bugnag.js
-* package.json
-* version.json
+## :dizzy: **Roadmap**
 
-Para facilitar a visão dos arquivos a serem alterados, use o grep do git + a versão a ser alterada (Com aspas):
-```sh
-$ git grep "[versão a ser alterada]"
-```
+-   [x] Make it work on IOS
+-   [x] Make it work on Android
+-   [x] Make it work on Expo
+-   [x] Transform into responsive
+-   [x] Update to latest React Native version
 
-## Produção (Android)
-Para gerar o *apk* rode o comando
-```sh
-$ react-native run-android --variant=release
-```
+## :wrench: **Install instructions**
 
-ou
+### Getting Started
 
-```sh
-$ cd android && ./gradlew assembleRelease
-```
+#### 1) Clone & Install Dependencies
 
-O arquivo será gerado na pasta *android/app/build/apk/app-release.apk*.
+- 1.1) `git clone https://github.com/funnyjerry/react-native-audio-stream.git`
+- 1.2) `cd react-native-homeautomation-app` - cd into your newly created project directory.
+- 1.3) Install NPM packages with `yarn install`
+        **Note:** NPM has issues with React Native so `yarn` is recommended over `npm`.
+- 1.4) **[iOS]** `cd ios` and run `pod install` - if you don't have CocoaPods you can follow [these instructions](https://guides.cocoapods.org/using/getting-started.html#getting-started) to install it.
+- 1.5) **[Android]** If you haven't already generated a `debug.keystore` file you will need to complete this step from within the `/android/app` folder. Run `keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
 
-## Produção (iOS)
-Para enviar o aplicativo para App Store o processo é o mesmo de um aplicativo nativo, é necessário primeiro pelo XCode fazer o **Archive** do aplicativo e depois de criada a versão, enviar para App Store.
+#### 2) Start your app
+
+- 2.1) **[iOS]** Build and run the iOS app, run `react-native run-ios` (to run on simulator) or `react-native run-ios --device` (to run on real device) from the root of your project. The first build will take some time.
+- 2.2) **[Android]** If you haven't already got an android device attached/emulator running then you'll need to get one running (make sure the emulator is with Google Play / APIs). When ready run `react-native run-android` from the root of your project.
+
+## :zap: **Tech Stack**
+
+<h1 align="center">
+  <img src="https://apprecs.org/gp/images/app-icons/300/d8/host.exp.exponent.jpg" alt="Stack" height="100" width="100">
+  <img src="https://ionicframework.com/docs/assets/icons/logo-react-icon.png" alt="Stack" height="100" width="100">
+  <img src="https://cdn4.iconfinder.com/data/icons/google-i-o-2016/512/google_firebase-512.png" alt="Stack" height="100" width="100">
+  <img src="https://icon-library.net/images/png-map-icon/png-map-icon-26.jpg" alt="Stack" height="100" width="100">
+  <img src="https://cdn.iconscout.com/icon/free/png-512/facebook-logo-2019-1597680-1350125.png" alt="Stack" height="100" width="100">
+
+  <br>
+</h1>
+
+-   [React Native](https://github.com/facebook/react-native)
+-   [Redux](https://github.com/reduxjs/react-redux)
+-   [Redux-Persist](https://github.com/rt2zz/redux-persist)
+-   [Lottie React Native](https://github.com/react-native-community/lottie-react-native)
+-   [Antd Mobile RN](https://github.com/ant-design/ant-design-mobile-rn)
+-   [React Native Firebase](https://github.com/invertase/react-native-firebase)
+-   [Gifted Chat](https://github.com/FaridSafi/react-native-gifted-chat)
+-   [Eslint](https://eslint.org/)
+
+## :iphone: **Test**
+
+- [x] Test on Android
+- [x] Test on iOS
+
+## :eyes: **Version**
+- [ ] React-Native 
+- [x] Expo 35
