@@ -59,6 +59,18 @@
   <kbd>
     <img width="250" style="border-radius: 5px" height="450" src="screenshots/6.jpg" alt="6">
   </kbd>
+    <br/><br/>
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/7.jpg" alt="7">
+  </kbd>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/8.jpg" alt="8">
+  </kbd>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" src="screenshots/9.jpg" alt="9">
+  </kbd>
 </p>
 
 ## :blush: **Overview?**
