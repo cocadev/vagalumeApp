@@ -78,9 +78,8 @@ Follow your favorite stations, rate songs, check out what played / will play on 
 
 -   [x] Make it work on IOS
 -   [x] Make it work on Android
--   [x] Make it work on Expo
 -   [x] Transform into responsive
--   [x] Update to latest React Native version
+-   [ ] Update to latest React Native version
 
 ## :wrench: **Install instructions**
 
@@ -127,5 +126,5 @@ Follow your favorite stations, rate songs, check out what played / will play on 
 - [x] Test on iOS
 
 ## :eyes: **Version**
-- [ ] React-Native 
-- [x] Expo 35
+- [x] React-Native 0.55.4
+- [ ] Expo 35
