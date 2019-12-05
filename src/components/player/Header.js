@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, Platform, Text, AsyncStorage, Animated } from 'react-native';
+import { View, StyleSheet, Image, Platform, Text, Animated } from 'react-native';
 import IconButton from '../containers/IconButton';
 import Icon from '../containers/Icon';
 import StatusBarHeight from '../containers/StatusBarHeight';
 import ChromecastButton from '../containers/ChromecastButton';
 import EventManager from '../containers/EventManager';
-import PlayingSong from './PlayingSong';
 
 class Header extends Component {
 	renderCloseButton() {
@@ -13,20 +12,20 @@ class Header extends Component {
 
 		return (
 			<IconButton
-			hitSlop={{ top: 30, left: 30, right: 30, bottom: 40 }}
-			size={40}
-			onPress={() => {
-				if (this.props.isShowingLyrics) {
-					this.props.hideLyrics();
-				} else {
-					this.props.hidePlayer();
-				}
-			}}
-			color="rgba(255, 255, 255, 0.2)"
-			accessible={true}
-            accessibilityLabel={accessibilityText}
+				hitSlop={{ top: 30, left: 30, right: 30, bottom: 40 }}
+				size={40}
+				onPress={() => {
+					if (this.props.isShowingLyrics) {
+						this.props.hideLyrics();
+					} else {
+						this.props.hidePlayer();
+					}
+				}}
+				color="rgba(255, 255, 255, 0.2)"
+				accessible={true}
+				accessibilityLabel={accessibilityText}
 			>
-				<Animated.View style={{ transform: [{ rotate: this.props.backButtonRotation }] }}>
+				<Animated.View style={{ transform: [ { rotate: this.props.backButtonRotation } ] }}>
 					<Icon name="chevron_down" size={20} color="#FFF" />
 				</Animated.View>
 			</IconButton>
@@ -35,9 +34,15 @@ class Header extends Component {
 
 	renderChromecastButton() {
 		return (
-			<ChromecastButton onPress={() => {
-				EventManager.trackEvent({ action: 'chromecast', category: 'Chromecast', params: { event_type: 'connect', from: 'player' } });
-			}} />
+			<ChromecastButton
+				onPress={() => {
+					EventManager.trackEvent({
+						action: 'chromecast',
+						category: 'Chromecast',
+						params: { event_type: 'connect', from: 'player' }
+					});
+				}}
+			/>
 		);
 	}
 
@@ -47,11 +52,11 @@ class Header extends Component {
 
 		return (
 			<IconButton
-			size={40}
-			onPressIn={shareStation}
-			color="rgba(255, 255, 255, 0.2)"
-			accessible={true}
-            accessibilityLabel={accessibilityText}
+				size={40}
+				onPressIn={shareStation}
+				color="rgba(255, 255, 255, 0.2)"
+				accessible={true}
+				accessibilityLabel={accessibilityText}
 			>
 				<Icon name={`share_${Platform.OS}`} size={25} color="#FFF" />
 			</IconButton>
@@ -65,14 +70,14 @@ class Header extends Component {
 		return (
 			<View>
 				<IconButton
-				accessible={true}
-            	accessibilityLabel={accessibilityText}
-				onPress={() => {
-					openBottomSheet();
-					EventManager.trackEvent({ action: 'opened_player_options', category: 'Player' });
-				}}
-				size={40}
-				color="rgba(255, 255, 255, 0.2)"
+					accessible={true}
+					accessibilityLabel={accessibilityText}
+					onPress={() => {
+						openBottomSheet();
+						EventManager.trackEvent({ action: 'opened_player_options', category: 'Player' });
+					}}
+					size={40}
+					color="rgba(255, 255, 255, 0.2)"
 				>
 					<Icon name="options" size={25} color="#FFF" />
 				</IconButton>
@@ -111,11 +116,42 @@ class Header extends Component {
 						{this.renderOptionsButton()}
 					</View>
 				</Animated.View>
-				<Animated.View pointerEvents="none" style={{ opacity: this.props.lyricsNameOpacity, position: 'absolute', justifyContent: 'center', alignItems: 'center', left: 0, right: 0, paddingTop: 12 }}>
-					<Text numberOfLines={1} style={{ textAlign: 'center', fontFamily: 'rubik-medium', color: '#CF0', fontSize: 14, paddingLeft: 66, paddingRight: 50 }}>
+				<Animated.View
+					pointerEvents="none"
+					style={{
+						opacity: this.props.lyricsNameOpacity,
+						position: 'absolute',
+						justifyContent: 'center',
+						alignItems: 'center',
+						left: 0,
+						right: 0,
+						paddingTop: 12
+					}}
+				>
+					<Text
+						numberOfLines={1}
+						style={{
+							textAlign: 'center',
+							fontFamily: 'rubik-medium',
+							color: '#CF0',
+							fontSize: 14,
+							paddingLeft: 66,
+							paddingRight: 50
+						}}
+					>
 						{this.renderLyricsArtist()}
 					</Text>
-					<Text numberOfLines={1} style={{ textAlign: 'center', fontFamily: 'rubik', color: '#FFF', fontSize: 18, paddingLeft: 66, paddingRight: 50 }}>
+					<Text
+						numberOfLines={1}
+						style={{
+							textAlign: 'center',
+							fontFamily: 'rubik',
+							color: '#FFF',
+							fontSize: 18,
+							paddingLeft: 66,
+							paddingRight: 50
+						}}
+					>
 						{this.renderLyricsTitle()}
 					</Text>
 				</Animated.View>
@@ -144,12 +180,12 @@ const styles = StyleSheet.create({
 	},
 	hideButton: {
 		position: 'absolute',
-        left: 0,
-        height: 56,
-        width: 112,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        flexDirection: 'row',
+		left: 0,
+		height: 56,
+		width: 112,
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		flexDirection: 'row',
 		paddingLeft: 10,
 		zIndex: 1
 	},
@@ -159,17 +195,17 @@ const styles = StyleSheet.create({
 	},
 	logo: {
 		width: 135,
-        height: 40,
-        alignSelf: 'center'
+		height: 40,
+		alignSelf: 'center'
 	},
 	optionsContent: {
 		position: 'absolute',
-        right: 0,
-        height: 56,
-        width: 112,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        flexDirection: 'row'
+		right: 0,
+		height: 56,
+		width: 112,
+		justifyContent: 'flex-end',
+		alignItems: 'center',
+		flexDirection: 'row'
 	},
 	optionsImage: {
 		width: 25,
