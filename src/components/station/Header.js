@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Image, View, Platform, Animated, StyleSheet } from 'react-native';
+import { View, Platform, Animated, StyleSheet } from 'react-native';
 import IconButton from '../containers/IconButton';
 import Icon from '../containers/Icon';
-import ChromecastButton from '../containers/ChromecastButton'
+import ChromecastButton from '../containers/ChromecastButton';
 import StatusBarHeight from '../containers/StatusBarHeight';
 import EventManager from '../containers/EventManager';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.state = { heartSize: new Animated.Value(26) };
-    }
+		this.state = { heartSize: new Animated.Value(26) };
+	}
 
 	renderBackButton() {
 		const { backPage } = this.props;
@@ -20,18 +20,36 @@ class Header extends Component {
 		return (
 			<View>
 				<IconButton
-				hitSlop={{ top: 30, left: 20, right: 30, bottom: 30 }}
-				size={56}
-				onPress={backPage}
-				color="rgba(255, 255, 255, 0.2)"
-				accessible={true} 
-                accessibilityLabel={accessibilityText}>
+					hitSlop={{ top: 30, left: 20, right: 30, bottom: 30 }}
+					size={56}
+					onPress={backPage}
+					color="rgba(255, 255, 255, 0.2)"
+					accessible={true}
+					accessibilityLabel={accessibilityText}
+				>
 					<Icon name="chevron_left" size={16} color="#FFF" />
 				</IconButton>
-				<View style={[{ position: 'absolute', left: 48, top: 0, height: 56, justifyContent: 'center', alignItems: 'center' }]}>
-					<ChromecastButton onPress={() => {
-						EventManager.trackEvent({ action: 'chromecast', category: 'Chromecast', params: { event_type: 'connect', from: 'station' } });
-					}} />
+				<View
+					style={[
+						{
+							position: 'absolute',
+							left: 48,
+							top: 0,
+							height: 56,
+							justifyContent: 'center',
+							alignItems: 'center'
+						}
+					]}
+				>
+					<ChromecastButton
+						onPress={() => {
+							EventManager.trackEvent({
+								action: 'chromecast',
+								category: 'Chromecast',
+								params: { event_type: 'connect', from: 'station' }
+							});
+						}}
+					/>
 				</View>
 			</View>
 		);
@@ -39,13 +57,7 @@ class Header extends Component {
 
 	renderTitle() {
 		const { stationName, showBarStationName } = this.props;
-		return (
-			<Animated.Text
-			style={[styles.title, { opacity: showBarStationName }]}
-			>
-				{stationName}
-			</Animated.Text>
-		);
+		return <Animated.Text style={[ styles.title, { opacity: showBarStationName } ]}>{stationName}</Animated.Text>;
 	}
 
 	renderShareButton() {
@@ -54,34 +66,38 @@ class Header extends Component {
 
 		return (
 			<IconButton
-			hitSlop={{top: 30, left: 20, right: 30, bottom: 30}}
-			size={48}
-			onPressIn={shareStation}
-			color="rgba(255, 255, 255, 0.2)"
-			accessible={true} 
-            accessibilityLabel={accessibilityText}
+				hitSlop={{ top: 30, left: 20, right: 30, bottom: 30 }}
+				size={48}
+				onPressIn={shareStation}
+				color="rgba(255, 255, 255, 0.2)"
+				accessible={true}
+				accessibilityLabel={accessibilityText}
 			>
 				<Icon name={`share_${Platform.OS}`} size={20} color="#FFF" />
 			</IconButton>
 		);
 	}
 
-    render() {
-        return (
-	        <Animated.View
-	        style={[styles.body, {
-	          backgroundColor: this.props.barOpacity,
-	          transform: [{ translateY: this.props.translateY }],
-	          elevation: this.props.barElevation }]}
-	        >
-	            <View style={styles.container}>
+	render() {
+		return (
+			<Animated.View
+				style={[
+					styles.body,
+					{
+						backgroundColor: this.props.barOpacity,
+						transform: [ { translateY: this.props.translateY } ],
+						elevation: this.props.barElevation
+					}
+				]}
+			>
+				<View style={styles.container}>
 					{this.renderBackButton()}
 					{this.renderTitle()}
 					{this.renderShareButton()}
-            	</View>
-        	</Animated.View>
-        );
-    }
+				</View>
+			</Animated.View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
