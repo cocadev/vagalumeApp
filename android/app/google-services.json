@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "10204735076",
+    "firebase_url": "https://vagalume-fm.firebaseio.com",
+    "project_id": "vagalume-fm",
+    "storage_bucket": "vagalume-fm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10204735076:android:f3b0f4a822c3fdd0",
+        "android_client_info": {
+          "package_name": "br.com.vagalume.fm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10204735076-dlrqc296ee6ge1pvi9dqph2f3b979cmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDulzvPIGQX6YaU-4FfLfkaaQ4lAvqPlnc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

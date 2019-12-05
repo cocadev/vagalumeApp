@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="notification_big_height">130dp</dimen>
+    <dimen name="notification_small_height">64dp</dimen>
+    <dimen name="notification_margins">15dp</dimen>
+    <dimen name="notification_margins_top">10dp</dimen>
+    <dimen name="notification_margins_bottom">10dp</dimen>
+
+    <dimen name="notification_image_big_width">95dp</dimen>
+    <dimen name="notification_image_big_height">90dp</dimen>
+    <dimen name="notification_small_text">13sp</dimen>
+    <dimen name="notification_msmall_text">10sp</dimen>
+
+</resources>

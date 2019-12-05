@@ -1,0 +1,62 @@
+# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+Pods/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IJ
+#
+*.iml
+*.setings
+*.classpath
+*.project
+.idea
+.gradle
+local.properties
+
+# node.js
+#
+node_modules/
+npm-debug.log
+debug.log
+
+# BUCK
+buck-out/
+\.buckd/
+android/app/libs
+android/keystores/debug.keystore
+jsconfig.json
+.vscode/
+
+# android / ios bundle
+android-release.bundle
+android-release.bundle.map
+android-release.bundle.meta
+android-debug.bundle
+android-debug.bundle.map
+android-debug.bundle.meta
+ios-release.bundle
+ios-release.bundle.map
+ios-release.bundle.meta
+ios-debug.bundle
+ios-debug.bundle.map
+ios-debug.bundle.meta

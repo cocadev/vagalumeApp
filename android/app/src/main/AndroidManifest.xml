@@ -1,0 +1,110 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.vagalume.fm"
+    android:versionCode="203046"
+    android:versionName="2.3.46">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <compatible-screens>
+        <screen android:screenSize="small" />
+        <screen android:screenSize="normal"/>
+        <screen android:screenSize="large" />
+        <screen android:screenSize="xlarge" />
+    </compatible-screens>
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="26" />
+
+    <application xmlns:tools="http://schemas.android.com/tools"
+	  tools:replace="allowBackup"
+      android:name=".MainApplication"
+      android:allowBackup="false"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:theme="@style/AppTheme"
+      android:resizeableActivity="false">
+
+	   <meta-data android:name="android.max_aspect"
+			   android:value="2.1"/>
+
+      <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+      <meta-data android:name="com.bugsnag.android.API_KEY" android:value="@string/bugsnag_api_key"/>
+      <activity
+        android:screenOrientation="portrait"
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustPan"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+			<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        </intent-filter>
+		<intent-filter android:autoVerify="true">
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+			<data android:host="vagalume.fm" android:scheme="https" />
+            <data android:host="vagalume.fm" android:scheme="http" />
+			<data android:scheme="vagalumefm" android:host="station"/>
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+			<data android:scheme="https" android:host="g9eh7.app.goo.gl" />
+			<data android:scheme="http" android:host="g9eh7.app.goo.gl" />
+			<data android:scheme="g9eh7.app.goo.gl/?link=https" android:host="vagalume.fm" />
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+      <service android:name="br.com.vagalume.mediacontrols.NotificationService" />
+	  <service
+		  android:name="io.invertase.firebase.messaging.MessagingService"
+		  android:enabled="true"
+		  android:exported="true">
+		  <intent-filter>
+			  <action android:name="com.google.firebase.MESSAGING_EVENT" />
+		  </intent-filter>
+	  </service>
+	  <service android:name="io.invertase.firebase.messaging.InstanceIdService" android:exported="false">
+		  <intent-filter>
+			  <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+		  </intent-filter>
+	  </service>
+
+	  <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
+	  <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
+		  <intent-filter>
+			  <action android:name="android.intent.action.BOOT_COMPLETED" />
+		  </intent-filter>
+	  </receiver>
+	  <service android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationRegistrationService"/>
+	  <service
+		  android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
+		  android:exported="false" >
+		  <intent-filter>
+			  <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+		  </intent-filter>
+	  </service>
+
+      <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="br.com.vagalume.fm.CastOptionsProvider"
+            />
+    </application>
+
+</manifest>

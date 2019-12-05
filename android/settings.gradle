@@ -1,0 +1,52 @@
+rootProject.name = 'VagalumeFM'
+//include ':react-native-fast-image'
+//project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-firebase'
+project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
+include ':react-native-push-notification'
+project(':react-native-push-notification').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-push-notification/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-device-info'
+project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
+include ':react-native-firebase'
+project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
+include ':react-native-sound'
+project(':react-native-sound').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sound/android')
+include ':lottie-react-native'
+project(':lottie-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/lottie-react-native/src/android')
+include ':react-native-orientation'
+project(':react-native-orientation').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-orientation/android')
+include ':react-native-linear-gradient'
+project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+include ':react-native-google-analytics-bridge'
+project(':react-native-google-analytics-bridge').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-google-analytics-bridge/android')
+include ':react-native-fs'
+project(':react-native-fs').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fs/android')
+include ':react-native-background-timer'
+project(':react-native-background-timer').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-background-timer/android')
+
+
+include ':app'
+include ':react-native-firebase-dynamic-links'
+project(':react-native-firebase-dynamic-links').projectDir = new File(rootProject.projectDir, '../react-native-firebase-dynamic-links/android')
+include ':bugsnag-react-native'
+project(':bugsnag-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/bugsnag-react-native/android')
+include ':react-native-player-handler'
+project(':react-native-player-handler').projectDir = new File(rootProject.projectDir, '../react-native-player-handler/android')
+include ':react-native-exoplayer2'
+project(':react-native-exoplayer2').projectDir = new File(rootProject.projectDir, '../react-native-exoplayer2/android')
+include ':react-native-media-player'
+project(':react-native-media-player').projectDir = new File(rootProject.projectDir, '../react-native-media-player/android')
+include ':react-native-aac-player'
+project(':react-native-aac-player').projectDir = new File(rootProject.projectDir, '../react-native-aac-player/android')
+
+include ':react-native-splash-screen'
+project(':react-native-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-splash-screen/android')
+
+include ':react-native-bugsnag'
+project(':react-native-bugsnag').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bugsnag/android')
+include ':react-native-widget'
+project(':react-native-widget').projectDir = new File(rootProject.projectDir, '../react-native-widget/android')
+include ':react-native-chromecast'
+project(':react-native-chromecast').projectDir = new File(rootProject.projectDir, '../react-native-chromecast/android')

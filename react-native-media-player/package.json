@@ -1,0 +1,7 @@
+{
+  "name": "react-native-media-player",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Lucas Viana <lviana@vagalume.com.br> (https://www.vagalume.com.br)"
+}

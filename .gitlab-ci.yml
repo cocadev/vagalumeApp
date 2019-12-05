@@ -1,0 +1,12 @@
+image: garland/aws-cli-docker 
+
+deploy:
+  tags:
+    - s3
+  stage: deploy
+  only:
+    - master
+  script:
+    - aws s3 cp version.json s3://vagalume.fm --cache-control "max-age=3600,public"
+    - aws configure set preview.cloudfront true
+    - aws cloudfront create-invalidation --distribution-id E127WFVHLFZ7LI --paths /version.json

@@ -1,0 +1,7 @@
+{
+  "name": "react-native-chromecast",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Rafael Magalhães <rmagalhaes@vagalume.com.br> (https://www.vagalume.com.br)"
+}

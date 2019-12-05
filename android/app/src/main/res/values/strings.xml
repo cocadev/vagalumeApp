@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Vagalume FM</string>
+    <string name="facebook_app_id">394788857534419</string>
+    <string name="bugsnag_api_key">6b72162240cb5dbea6828c5409a2ea73</string>
+</resources>

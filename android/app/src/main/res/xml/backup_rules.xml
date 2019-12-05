@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+	<exclude domain="database" path="doneStyles" />
+	<exclude domain="database" path="allStations" />
+	<exclude domain="database" path="featured" />
+</full-backup-content>
