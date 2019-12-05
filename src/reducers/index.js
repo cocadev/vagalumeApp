@@ -11,7 +11,7 @@ const navReducer = (state = initialState, action) => {
 };
 
 export default combineReducers({
-  stations: StationsReducer,
-  player: PlayerReducer,  
-  nav: navReducer
+	stations: StationsReducer,
+	player: PlayerReducer,
+	nav: navReducer
 });

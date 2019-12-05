@@ -11,7 +11,7 @@ import {
 	CAST_SESSION_CHANGED,
 	CAST_DEVICE_ID_CHANGED,
 	NEXT_SONG_LIST_LOADED,
-    SET_SLEEP_TIME
+	SET_SLEEP_TIME
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -24,46 +24,56 @@ const INITIAL_STATE = {
 	playingSong: { artist: { name: '' }, title: { name: '' } }, // Música que está tocando no momento
 	nextSongList: [], // Lista de músicas que serão tocadas
 	isRecording: false, // Variável que verifica se está gravando uma estação no momento, caso esteja gravando armazena o timestamp
-    cast: { session: '', deviceId: '' }
+	cast: { session: '', deviceId: '' }
 };
 
 export default (state = INITIAL_STATE, action) => {
-    switch (action.type) {
+	switch (action.type) {
 		case PLAYER_INITIATED:
 			const { instance, playerInfo, playerType, recordingFile, autoplay } = action.payload;
-			return { ...state, instance, playingSong: INITIAL_STATE.playingSong, nextSongList: INITIAL_STATE.nextSongList, playerType, playerInfo, recordingFile, autoplay, status: autoplay ? STATE_TYPE.STARTING : STATE_TYPE.STOPPED };
+			return {
+				...state,
+				instance,
+				playingSong: INITIAL_STATE.playingSong,
+				nextSongList: INITIAL_STATE.nextSongList,
+				playerType,
+				playerInfo,
+				recordingFile,
+				autoplay,
+				status: autoplay ? STATE_TYPE.STARTING : STATE_TYPE.STOPPED
+			};
 		case TOGGLE_RECORDING:
 			const { isRecording } = action.payload;
 			return { ...state, isRecording };
 		case PLAYER_TYPE_CHANGED:
-            return { ...state, playerType: action.payload };
-        case PLAYER_INFO_LOADED:
-            return { ...state, playerInfo: action.payload };
-        case PLAYER_STARTED:
-            return { ...state, instance: action.payload };
-        case PLAYER_STATUS_CHANGED:
-            return { ...state, status: action.payload };
+			return { ...state, playerType: action.payload };
+		case PLAYER_INFO_LOADED:
+			return { ...state, playerInfo: action.payload };
+		case PLAYER_STARTED:
+			return { ...state, instance: action.payload };
+		case PLAYER_STATUS_CHANGED:
+			return { ...state, status: action.payload };
 		case NEXT_SONG_LIST_LOADED:
 			return { ...state, nextSongList: action.payload };
-        case PLAYING_SONG_LOADED:
-            return { ...state, playingSong: action.payload };
-        case CAST_SESSION_CHANGED:
-            return {
-                ...state,
-                cast: {
-                    session: action.payload,
-                    deviceId: state.cast.deviceId
-                }
-            };
-         case CAST_DEVICE_ID_CHANGED:
-            return {
-                ...state,
-                cast: {
-                    session: state.cast.session,
-                    deviceId: action.payload
-                }
-            };
-        default:
-        return state;
-    }
+		case PLAYING_SONG_LOADED:
+			return { ...state, playingSong: action.payload };
+		case CAST_SESSION_CHANGED:
+			return {
+				...state,
+				cast: {
+					session: action.payload,
+					deviceId: state.cast.deviceId
+				}
+			};
+		case CAST_DEVICE_ID_CHANGED:
+			return {
+				...state,
+				cast: {
+					session: state.cast.session,
+					deviceId: action.payload
+				}
+			};
+		default:
+			return state;
+	}
 };
