@@ -5,48 +5,36 @@ import Touchable from '../containers/Touchable';
 const { width } = Dimensions.get('window');
 
 class InfoTabs extends Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.state = { borderPos: new Animated.Value(0), index: 0 };
-        this.onPageSelected = this.onPageSelected;
+		this.state = { borderPos: new Animated.Value(0), index: 0 };
+		this.onPageSelected = this.onPageSelected;
 
-		this._tabs = ['PRÓXIMAS', 'ÚLTIMAS', 'VEJA TAMBÉM'];
-    }
+		this._tabs = [ 'PRÓXIMAS', 'ÚLTIMAS', 'VEJA TAMBÉM' ];
+	}
 
-    onPageSelected(index) {
-        const pos = (width / this._tabs.length) * index;
+	onPageSelected(index) {
+		const pos = width / this._tabs.length * index;
 
-        this.setState({ index });
+		this.setState({ index });
 
-        Animated.spring(
-            this.state.borderPos,
-            { toValue: pos }
-        ).start();
-    }
+		Animated.spring(this.state.borderPos, { toValue: pos }).start();
+	}
 
-    setPos(index) {
-        this.onPageSelected(index);
-        this.props.onTabSelected(index);
-    }
+	setPos(index) {
+		this.onPageSelected(index);
+		this.props.onTabSelected(index);
+	}
 
 	renderTab(label, key) {
 		const { index } = this.state;
 		const background = Platform.OS === 'android' ? TouchableNativeFeedback.Ripple('#333') : '#333';
 
 		return (
-			<Touchable
-			key={key}
-			style={{ flex: 1 }}
-			background={background}
-			onPress={this.setPos.bind(this, key)}
-			>
+			<Touchable key={key} style={{ flex: 1 }} background={background} onPress={this.setPos.bind(this, key)}>
 				<View style={styles.tabContainer}>
-					<Text
-					style={[styles.tabText, { color: index === key ? '#FFF' : '#AAA' }]}
-					>
-						{label}
-					</Text>
+					<Text style={[ styles.tabText, { color: index === key ? '#FFF' : '#AAA' } ]}>{label}</Text>
 				</View>
 			</Touchable>
 		);
@@ -62,7 +50,7 @@ class InfoTabs extends Component {
 		const { borderPos } = this.state;
 		return (
 			<View style={styles.body}>
-				<Animated.View style={[styles.border, { left: borderPos, width: width /  this._tabs.length }]} />
+				<Animated.View style={[ styles.border, { left: borderPos, width: width / this._tabs.length } ]} />
 				{this.renderTabs()}
 			</View>
 		);
@@ -83,7 +71,7 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		bottom: 0,
 		zIndex: 2
-  	},
+	},
 	tabText: {
 		fontFamily: 'rubik-medium',
 		textAlign: 'center',

@@ -12,8 +12,10 @@ class StationSong extends Component {
 		if (song && song.artist && song.artist.id) text = song.artist.name.toUpperCase();
 
 		return (
-			<Text numberOfLines={1} style={styles.artist}>{text}</Text>
-		)
+			<Text numberOfLines={1} style={styles.artist}>
+				{text}
+			</Text>
+		);
 	}
 
 	renderSongName() {
@@ -21,14 +23,17 @@ class StationSong extends Component {
 		let text = station && station.name;
 		if (song && song.title && song.title.id) text = song.title.name;
 
-		return (
-			<MarqueeText width={width} style={styles.song} text={text} />
-		)
+		return <MarqueeText width={width} style={styles.song} text={text} />;
 	}
 
 	render() {
 		return (
-			<View style={styles.body} accessible={true} accessibilityLiveRegion={'polite'} accessibilityTraits={'frequentUpdates'}>
+			<View
+				style={styles.body}
+				accessible={true}
+				accessibilityLiveRegion={'polite'}
+				accessibilityTraits={'frequentUpdates'}
+			>
 				{this.renderArtistName()}
 				{this.renderSongName()}
 			</View>
@@ -59,6 +64,6 @@ const styles = StyleSheet.create({
 		color: '#FFF',
 		backgroundColor: 'transparent'
 	}
-})
+});
 
 export default StationSong;

@@ -3,11 +3,7 @@ import { Platform, Image } from 'react-native';
 
 class ImageCache extends Component {
 	render() {
-		return (
-			<Image
-			{...this.props}
-			/>
-		);
+		return <Image {...this.props} />;
 	}
 }
 

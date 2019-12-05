@@ -25,6 +25,6 @@ const EventManager = {
 			bugsnag.leaveBreadcrumb('view_screen', { page_name: pageName.toLowerCase() });
 		}
 	}
-}
+};
 
 export default EventManager;
