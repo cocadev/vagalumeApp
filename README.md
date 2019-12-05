@@ -91,6 +91,7 @@ Follow your favorite stations, rate songs, check out what played / will play on 
 -   [x] Make it work on IOS
 -   [x] Make it work on Android
 -   [x] Transform into responsive
+-   [x] Google Analytices Bridge
 -   [ ] Update to latest React Native version
 
 ## :wrench: **Install instructions**
@@ -129,8 +130,8 @@ Follow your favorite stations, rate songs, check out what played / will play on 
 -   [Lottie React Native](https://github.com/react-native-community/lottie-react-native)
 -   [Antd Mobile RN](https://github.com/ant-design/ant-design-mobile-rn)
 -   [React Native Firebase](https://github.com/invertase/react-native-firebase)
--   [Gifted Chat](https://github.com/FaridSafi/react-native-gifted-chat)
 -   [Eslint](https://eslint.org/)
+-   [Bug Snag](https://github.com/bugsnag/bugsnag-react-native)
 
 ## :iphone: **Test**
 
