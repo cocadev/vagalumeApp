@@ -1,4 +1,4 @@
-<h1 align="center"><b> Vagalume App </b> </h1>
+<h1 align="center"><b> React-Native Vagalume App </b> </h1>
 
 <h1 align="center">
   <br>
