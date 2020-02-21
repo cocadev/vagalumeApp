@@ -1,14 +1,5 @@
 <h1 align="center"><b> React-Native Vagalume App </b> </h1>
 
-<h1 align="center">
-  <br>
-  <kbd>
-    <img src="https://image.prntscr.com/image/YrkdAm5xSxe0MmkqrvGeJA.png" alt="Animavita" height="525" width="725">
-  </kbd>
-  <br>
-  <br><br>
-</h1>
-
 <p align="center">With Vagalume streaming you will never miss music to keep up with the moments of your life. Download for FREE and always have it around!</p>
 
 <p align="center"><i>"How to save a life?" - The Audio Streaming</i> </p>
