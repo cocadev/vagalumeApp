@@ -1,4 +1,4 @@
-<h1 align="center"><b> React-Native Vagalume App </b> </h1>
+<h1 align="center"><b> React-Native Vagalume App RN0.55</b> </h1>
 
 <p align="center">With Vagalume streaming you will never miss music to keep up with the moments of your life. Download for FREE and always have it around!</p>
 
