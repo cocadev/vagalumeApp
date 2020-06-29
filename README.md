@@ -28,39 +28,39 @@
 
 <p align="center">
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/1.jpg" alt="1">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/1.jpg" alt="1">
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/2.jpg" alt="2">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/2.jpg" alt="2">
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/3.jpg" alt="3">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/3.jpg" alt="3">
   </kbd>
   <br/><br/>
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/4.jpg" alt="4">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/4.jpg" alt="4">
   </kbd>
     &nbsp;&nbsp;&nbsp;&nbsp;
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/5.jpg" alt="5">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/5.jpg" alt="5">
   </kbd>
     &nbsp;&nbsp;&nbsp;&nbsp;
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/6.jpg" alt="6">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/6.jpg" alt="6">
   </kbd>
     <br/><br/>
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/7.jpg" alt="7">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/7.jpg" alt="7">
   </kbd>
     &nbsp;&nbsp;&nbsp;&nbsp;
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/8.jpg" alt="8">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/8.jpg" alt="8">
   </kbd>
     &nbsp;&nbsp;&nbsp;&nbsp;
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" src="screenshots/9.jpg" alt="9">
+    <img width="200" style="border-radius: 5px" height="450" src="screenshots/9.jpg" alt="9">
   </kbd>
 </p>
 
